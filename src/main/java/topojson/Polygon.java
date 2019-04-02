@@ -16,11 +16,13 @@ public class Polygon implements IPolygon {
   public int[][] getArcs() {
     // copy the arcs because this class is immutable
     int[][] copy = new int[this.arcs.length][];
+
     for(int i=0; i<copy.length;i++) {
-      int[] copy2 = new int[copy[i].length];
-      System.arraycopy(copy, 0, copy2, 0, copy[i].length);
+      int[] copy2 = new int[this.arcs[i].length];
+      System.arraycopy(this.arcs[i], 0, copy2, 0, this.arcs[i].length);
       copy[i] = copy2;
     }
+
     return copy;
   }
 }
