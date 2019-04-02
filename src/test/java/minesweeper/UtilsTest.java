@@ -61,6 +61,8 @@ public class UtilsTest {
   /**
    * We also have to handle arc indexes with negative value according to the TopoJSON spec article 2.1.4:
    * https://github.com/topojson/topojson-specification
+   *
+   * This test is basically the same as getConnectivityMatrixTest() test.
    */
   @Test
   public void getConnectivityMatrixWithNegativeIndexesTest() {

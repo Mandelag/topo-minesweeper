@@ -1,5 +1,8 @@
 package topojson;
 
+/**
+ * IPolygon basic implementation.
+ */
 public class Polygon implements IPolygon {
   private final long id;
   private final int[][] arcs;
