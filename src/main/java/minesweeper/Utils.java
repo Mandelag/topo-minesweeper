@@ -1,24 +1,46 @@
 package minesweeper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import topojson.IPolygon;
 
 public class Utils {
-  public static void polygonsToGraph(List<IPolygon> polygons) {
-    Map<String, Integer> externalToInternalIdMapping = new HashMap<>(polygons.size()); // differentiate between Id in the input poylgons and id represented in graph
-    Map<Integer, List<IPolygon>> arcs = new HashMap<>(); // mapping between a boundary and their polygons
+  public static int[][] getConnectivityMatrix(List<IPolygon> polygons) {
+    int[][] result = new int[polygons.size()][];
+    Map<Integer, Set<Integer>> arcs = new HashMap<>(); // mapping between a boundary and their polygons
+    List<Set<Integer>> connectivityMatrix = new ArrayList<>();
 
-    for (IPolygon polygon : polygons) {
+    for (int i=0; i<polygons.size(); i++) {
+      IPolygon polygon = polygons.get(i);
       int[] outerRingArcIndexes = polygon.getArcs()[0];
-      for(int i=0; i<outerRingArcIndexes.length; i++) {
-        List<IPolygon> neighboringPolygons = arcs.getOrDefault(outerRingArcIndexes[i], new ArrayList<>());
-        neighboringPolygons.add(polygon);
+      for(int j=0; j<outerRingArcIndexes.length; j++) {
+        Set<Integer> neighboringPolygons = arcs.getOrDefault(outerRingArcIndexes[j], new HashSet<>());
+        neighboringPolygons.add(i);
       }
     }
 
+    // append all the connected polygons obtained from shared polygons arcs
+    for (int i=0; i<polygons.size(); i++) {
+      IPolygon polygon = polygons.get(i);
+      int[] outerRingArcIndexes = polygon.getArcs()[0];
+      Set<Integer> neighboorIndexes = connectivityMatrix.get(i);
+      for(int j=0; j<outerRingArcIndexes.length; j++) {
+        Set<Integer> connectedPolygons = arcs.get(outerRingArcIndexes[j]);
+        neighboorIndexes.addAll(connectedPolygons);
+      }
+      neighboorIndexes.remove(i);
+    }
 
+    // convert to array
+    for(int i=0; i<result.length; i++) {
+      Set<Integer> neighboorIndexes = connectivityMatrix.get(i);
+      int[] converted = new int[neighboorIndexes.size()];
+      Iterator<Integer> iter = neighboorIndexes.iterator();
+      for(int j=0;j<converted.length; j++) {
+        converted[j] = iter.next();
+      }
+      result[i] = converted;
+    }
+    return result;
   }
 }
