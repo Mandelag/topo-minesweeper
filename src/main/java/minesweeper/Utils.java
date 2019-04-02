@@ -14,9 +14,10 @@ public class Utils {
       IPolygon polygon = polygons.get(i);
       int[] outerRingArcIndexes = polygon.getArcs()[0];
       for(int j=0; j<outerRingArcIndexes.length; j++) {
-        Set<Integer> neighboringPolygons = arcs.getOrDefault(outerRingArcIndexes[j], new HashSet<>());
+        int normalizedArcIndex = outerRingArcIndexes[j] >= 0 ? outerRingArcIndexes[j] : ~outerRingArcIndexes[j];
+        Set<Integer> neighboringPolygons = arcs.getOrDefault(normalizedArcIndex, new HashSet<>());
         neighboringPolygons.add(i);
-        arcs.put(outerRingArcIndexes[j], neighboringPolygons);
+        arcs.put(normalizedArcIndex, neighboringPolygons);
       }
     }
 
@@ -26,7 +27,8 @@ public class Utils {
       int[] outerRingArcIndexes = polygon.getArcs()[0];
       Set<Integer> neighboorIndexes = new HashSet<>();
       for(int j=0; j<outerRingArcIndexes.length; j++) {
-        Set<Integer> connectedPolygons = arcs.get(outerRingArcIndexes[j]);
+        int normalizedArcIndex = outerRingArcIndexes[j] >= 0 ? outerRingArcIndexes[j] : ~outerRingArcIndexes[j];
+        Set<Integer> connectedPolygons = arcs.get(normalizedArcIndex);
         neighboorIndexes.addAll(connectedPolygons);
       }
       neighboorIndexes.remove(i);

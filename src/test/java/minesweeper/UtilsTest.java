@@ -74,6 +74,7 @@ public class UtilsTest {
     });
 
     int[][] connectivityMatrix = Utils.getConnectivityMatrix(polygons);
+
     assertArrayEquals(new int[][] {
         new int[]{1, 2, 3},
         new int[]{0},
