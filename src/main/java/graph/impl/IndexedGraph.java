@@ -1,6 +1,9 @@
-package graph;
+package graph.impl;
+
+import graph.IIndexedGraph;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,16 +15,20 @@ public class IndexedGraph<T> implements IIndexedGraph<T> {
   private final int[][] CONNECTIVITY_MATRIX;
   private final List<T> nodes;
 
-  public IndexedGraph(int[][] connectivityMatrix) {
-    this(connectivityMatrix, new ArrayList<T>(connectivityMatrix.length));
-  }
-
   public IndexedGraph(int[][] connectivityMatrix, List<T> initialNodes) {
     if (connectivityMatrix.length != initialNodes.size()) {
       throw new IllegalStateException("connectivityMatrix size should be equal with intialNodes size.");
     }
-    this.CONNECTIVITY_MATRIX = connectivityMatrix;
-    this.nodes = initialNodes;
+    // create the immutable copy
+    int[][] immutableCopy = new int[connectivityMatrix.length][];
+    for(int i=0; i<connectivityMatrix.length; i++) {
+      int[] copy = new int[connectivityMatrix[i].length];
+      System.arraycopy(connectivityMatrix[i], 0, copy, 0, connectivityMatrix[i].length);
+      immutableCopy[i] = copy;
+    }
+
+    this.CONNECTIVITY_MATRIX = immutableCopy;
+    this.nodes = Collections.unmodifiableList(initialNodes);
   }
 
   public int[] getAdjancentNodeIndexes(int index) {

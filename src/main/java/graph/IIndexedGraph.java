@@ -10,5 +10,4 @@ public interface IIndexedGraph<T> {
   int[] getAdjancentNodeIndexes(int index);
   List<T> getAdjancentNodes(int index);
   T get(int index);
-  void set(int index, T node);
 }
