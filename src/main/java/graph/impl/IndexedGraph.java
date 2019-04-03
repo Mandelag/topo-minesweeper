@@ -31,12 +31,14 @@ public class IndexedGraph<T> implements IIndexedGraph<T> {
     this.nodes = Collections.unmodifiableList(initialNodes);
   }
 
-  public int[] getAdjancentNodeIndexes(int index) {
-    return this.CONNECTIVITY_MATRIX[index];
+  public int[] getAdjacentNodeIndexes(int index) {
+    int[] result = new int[this.CONNECTIVITY_MATRIX[index].length];
+    System.arraycopy(this.CONNECTIVITY_MATRIX[index], 0, result, 0, this.CONNECTIVITY_MATRIX[index].length);
+    return result;
   }
 
-  public List<T> getAdjancentNodes(int index) {
-    int[] neighboringNodeIndexes = this.getAdjancentNodeIndexes(index);
+  public List<T> getAdjacentNodes(int index) {
+    int[] neighboringNodeIndexes = this.getAdjacentNodeIndexes(index);
     List<T> result = new ArrayList<>();
     for(int i=0; i<neighboringNodeIndexes.length; i++) {
       result.add(i, this.get(neighboringNodeIndexes[i]));
@@ -46,10 +48,6 @@ public class IndexedGraph<T> implements IIndexedGraph<T> {
 
   public T get(int index) {
     return this.nodes.get(index);
-  }
-
-  public void set(int index, T node) {
-    this.nodes.set(index, node);
   }
 
 }

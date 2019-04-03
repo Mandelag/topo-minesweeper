@@ -7,7 +7,7 @@ import java.util.List;
  * @param <T> Graph node's type.
  */
 public interface IIndexedGraph<T> {
-  int[] getAdjancentNodeIndexes(int index);
-  List<T> getAdjancentNodes(int index);
+  int[] getAdjacentNodeIndexes(int index);
+  List<T> getAdjacentNodes(int index);
   T get(int index);
 }
