@@ -53,15 +53,12 @@ public class IFieldOpenerTest {
   @Test
   public void nonZeroValueOpened() {
     int[] indexesToOpen = opener.open(mapWithMines, 4);
-    assertArrayEquals(new int[]{1}, indexesToOpen);
+    assertArrayEquals(new int[]{4}, indexesToOpen);
   }
 
   @Test
   public void zeroValueOpened() {
     int[] indexesToOpen = opener.open(mapWithMines, 5);
-    for(int i=0; i<indexesToOpen.length; i++) {
-      System.out.println(indexesToOpen[i]);
-    }
     assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, indexesToOpen);
   }
 }

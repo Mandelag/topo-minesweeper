@@ -26,8 +26,6 @@ public class Maps {
       boolean top = i < width;
       boolean bottom = i + width >= width*height;
 
-      System.out.printf("%d %dx%d %b %b %b %b%n", i, width, height, left, right, top, bottom);
-
       if(!left) {
         connectivity.add(i-1);
       }
