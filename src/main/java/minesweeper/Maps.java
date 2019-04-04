@@ -1,8 +1,5 @@
 package minesweeper;
 
-import graph.IIndexedGraph;
-import graph.impl.IndexedGraph;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

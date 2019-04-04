@@ -2,7 +2,6 @@ package minesweeper;
 
 import graph.IIndexedGraph;
 import graph.impl.IndexedGraph;
-import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
