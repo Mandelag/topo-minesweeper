@@ -1,12 +1,21 @@
 package minesweeper;
 
 import static org.junit.Assert.*;
+
+import minesweeper.maps.Maps;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class RectangularMapTest {
   @Test
   public void rectangularMapConnectivityTest() {
     int[][] rectangularConnectivity = Maps.rectangularConnectivity(3, 3);
+
+    // sort the map to fit into test data
+    for(int i=0; i<rectangularConnectivity.length; i++) {
+      Arrays.sort(rectangularConnectivity[i]);
+    }
 
     // connectivity of 3 x 3 grid
     int[][] connectivity = new int[][] {
@@ -33,6 +42,11 @@ public class RectangularMapTest {
      * 15, 16, 17, 18, 19
      */
     int[][] rectangularConnectivity = Maps.rectangularConnectivity(5, 4);
+
+    // sort the map to fit into test data
+    for(int i=0; i<rectangularConnectivity.length; i++) {
+      Arrays.sort(rectangularConnectivity[i]);
+    }
 
     // connectivity of 5 x 4 grid
     int[][] connectivity = new int[][] {

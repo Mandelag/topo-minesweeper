@@ -29,7 +29,7 @@ public class DefaultFieldOpeners implements IFieldOpener {
           tempResult.add(i);
         }
       }
-      System.out.println(tempResult);
+
       int[] result = new int[tempResult.size()];
       for(int i=0; i<tempResult.size(); i++) {
         result[i] = tempResult.get(i);

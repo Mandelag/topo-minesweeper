@@ -1,4 +1,4 @@
-package minesweeper;
+package minesweeper.maps;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +54,6 @@ public class Maps {
       for(int j=0; j<con.length; j++) {
         con[j] = connectivity.get(j);
       }
-      Arrays.sort(con);
       result[i] = con;
     }
     return result;
