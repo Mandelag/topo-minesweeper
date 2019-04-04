@@ -50,4 +50,16 @@ public class IndexedGraph<T> implements IIndexedGraph<T> {
     return this.nodes.get(index);
   }
 
+  public int size() {
+    return this.nodes.size();
+  }
+
+  public List<T> getNodes() {
+    return this.nodes;
+  }
+
+  public IIndexedGraph<T> setNodes(List<T> newNodes) {
+    return new IndexedGraph<>(this.CONNECTIVITY_MATRIX, newNodes);
+  }
+
 }
