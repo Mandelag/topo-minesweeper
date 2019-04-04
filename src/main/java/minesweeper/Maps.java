@@ -8,10 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Maps {
-  public static IIndexedGraph<Integer> NINE_BY_NINE = new IndexedGraph<>(
-      rectangularConnectivity(9, 9),
-      new ArrayList<>()
-  );
 
   /**
    * Messy algorithm
@@ -19,46 +15,51 @@ public class Maps {
    * @param height
    * @return
    */
-  private static int[][] rectangularConnectivity(int width, int height) {
+  public static int[][] rectangularConnectivity(int width, int height) {
     List<Integer> connectivity = new ArrayList<>();
     int[][] result = new int[width*height][];
 
     for(int i=0; i<width*height; i++) {
       connectivity.clear();
-      boolean notLeft = i%width != 0;
-      boolean notRight = i%width != width-1;
-      boolean notTop = i >= width;
-      boolean notBottom = i + width < width*height;
+      boolean left = i%width == 0;
+      boolean right = (i+1) %width == 0;
+      boolean top = i < width;
+      boolean bottom = i + width >= width*height;
 
-      if(notLeft) {
+      System.out.printf("%d %dx%d %b %b %b %b%n", i, width, height, left, right, top, bottom);
+
+      if(!left) {
         connectivity.add(i-1);
-      } else if (notRight) {
+      }
+      if (!right) {
         connectivity.add(i+1);
       }
 
-      if(notTop) {
+      if(!top) {
         connectivity.add(i - width);
-        if(notLeft) {
+        if(!left) {
           connectivity.add(i-width-1);
         }
-        if(notRight) {
+        if(!right) {
           connectivity.add(i-width+1);
         }
+      }
 
-      } else if (notBottom){
+      if (!bottom){
         connectivity.add(i + width);
-        if(notLeft) {
+        if(!left) {
           connectivity.add(i+width-1);
         }
-        if(notRight) {
+        if(!right) {
           connectivity.add(i+width+1);
         }
       }
       // TODO change the IIndexedGraph in the future to use List<List<Integer>>
       int[] con = new int[connectivity.size()];
       for(int j=0; j<con.length; j++) {
-        con[j] = connectivity.get(i);
+        con[j] = connectivity.get(j);
       }
+      Arrays.sort(con);
       result[i] = con;
     }
     return result;
