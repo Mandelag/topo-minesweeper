@@ -1,5 +1,6 @@
 package minesweeper;
 
+import minesweeper.maps.Utils;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

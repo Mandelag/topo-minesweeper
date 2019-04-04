@@ -2,7 +2,7 @@ package minesweeper;
 
 import static org.junit.Assert.*;
 
-import minesweeper.maps.Maps;
+import minesweeper.maps.Utils;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class RectangularMapTest {
   @Test
   public void rectangularMapConnectivityTest() {
-    int[][] rectangularConnectivity = Maps.rectangularConnectivity(3, 3);
+    int[][] rectangularConnectivity = Utils.rectangularConnectivity(3, 3);
 
     // sort the map to fit into test data
     for(int i=0; i<rectangularConnectivity.length; i++) {
@@ -33,15 +33,16 @@ public class RectangularMapTest {
     assertArrayEquals(connectivity, rectangularConnectivity);
   }
 
+  /**
+   *  0,  1,  2,  3,  4,
+   *  5,  6,  7,  8,  9,
+   * 10, 11, 12, 13, 14,
+   * 15, 16, 17, 18, 19
+   */
   @Test
   public void rectangular20x4MapConnectivityTest() {
-    /**
-     *  0,  1,  2,  3,  4,
-     *  5,  6,  7,  8,  9,
-     * 10, 11, 12, 13, 14,
-     * 15, 16, 17, 18, 19
-     */
-    int[][] rectangularConnectivity = Maps.rectangularConnectivity(5, 4);
+
+    int[][] rectangularConnectivity = Utils.rectangularConnectivity(5, 4);
 
     // sort the map to fit into test data
     for(int i=0; i<rectangularConnectivity.length; i++) {
