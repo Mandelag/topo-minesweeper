@@ -1,4 +1,4 @@
-package graph;
+package com.mandelag.topoms.graph;
 
 import java.util.List;
 

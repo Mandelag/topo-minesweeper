@@ -1,6 +1,6 @@
-package minesweeper;
+package com.mandelag.topoms;
 
-import graph.IIndexedGraph;
+import com.mandelag.topoms.graph.IIndexedGraph;
 
 import java.util.ArrayList;
 import java.util.List;

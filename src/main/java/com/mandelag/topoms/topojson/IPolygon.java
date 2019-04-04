@@ -1,4 +1,4 @@
-package topojson;
+package com.mandelag.topoms.topojson;
 
 /**
  * An (incomplete) specification of TopoJSON's Polygon Object in Java.

@@ -1,7 +1,7 @@
-package minesweeper;
+package com.mandelag.topoms;
 
-import graph.IIndexedGraph;
-import graph.impl.IndexedGraph;
+import com.mandelag.topoms.graph.IIndexedGraph;
+import com.mandelag.topoms.graph.impl.IndexedGraph;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ public class IMinePlacerTest {
   final IMinePlacer randomPlacer = MinePlacers.random;
 
   /**
-   * Build the graph.
+   * Build the com.mandelag.topoms.graph.
    * This represent simple 3 x 3 grid with the following indexes:
    *
    *  0 - 1 - 2

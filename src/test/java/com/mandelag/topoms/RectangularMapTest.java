@@ -1,8 +1,8 @@
-package minesweeper;
+package com.mandelag.topoms;
 
 import static org.junit.Assert.*;
 
-import minesweeper.maps.Utils;
+import com.mandelag.topoms.maps.Utils;
 import org.junit.Test;
 
 import java.util.Arrays;

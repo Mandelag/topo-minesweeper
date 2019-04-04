@@ -1,11 +1,11 @@
-package minesweeper;
+package com.mandelag.topoms;
 
-import minesweeper.maps.Utils;
+import com.mandelag.topoms.maps.Utils;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import topojson.IPolygon;
-import topojson.Polygon;
+import com.mandelag.topoms.topojson.IPolygon;
+import com.mandelag.topoms.topojson.Polygon;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 public class UtilsTest {
 
   /**
-   * Suppose we want to create a graph for following shared boundaries:
+   * Suppose we want to create a com.mandelag.topoms.graph for following shared boundaries:
    * Note: Letters represent polygons, Number represent shared boundaries.
    *
    *        B

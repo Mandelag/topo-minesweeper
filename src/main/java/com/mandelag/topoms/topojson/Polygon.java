@@ -1,4 +1,4 @@
-package topojson;
+package com.mandelag.topoms.topojson;
 
 /**
  * IPolygon basic implementation.

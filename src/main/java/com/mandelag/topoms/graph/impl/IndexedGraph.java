@@ -1,6 +1,6 @@
-package graph.impl;
+package com.mandelag.topoms.graph.impl;
 
-import graph.IIndexedGraph;
+import com.mandelag.topoms.graph.IIndexedGraph;
 
 import java.util.ArrayList;
 import java.util.Collections;

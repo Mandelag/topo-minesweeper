@@ -1,4 +1,4 @@
-package minesweeper;
+package com.mandelag.topoms;
 
 /**
  * Provides the interface of Minesweeper game, but WITHOUT its logic (doesn't know about losing or winning).

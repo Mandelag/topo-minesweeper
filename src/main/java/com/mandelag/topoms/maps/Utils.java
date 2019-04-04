@@ -1,8 +1,8 @@
-package minesweeper.maps;
+package com.mandelag.topoms.maps;
 
 import java.util.*;
 
-import topojson.IPolygon;
+import com.mandelag.topoms.topojson.IPolygon;
 
 public class Utils {
 
@@ -57,7 +57,7 @@ public class Utils {
 
 
   /**
-   * Generate connectivity matrix for rectangular maps (like the original minesweeper).
+   * Generate connectivity matrix for rectangular maps (like the original com.mandelag.topoms.core.minesweeper).
    *
    * @param width the width
    * @param height the height

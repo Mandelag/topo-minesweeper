@@ -1,7 +1,7 @@
-package minesweeper;
+package com.mandelag.topoms;
 
-import graph.IIndexedGraph;
-import graph.impl.IndexedGraph;
+import com.mandelag.topoms.graph.IIndexedGraph;
+import com.mandelag.topoms.graph.impl.IndexedGraph;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class IFieldOpenerTest {
 
   /**
-   * Build the graph.
+   * Build the com.mandelag.topoms.graph.
    * This represent simple 3 x 3 grid with the following indexes:
    *
    *  0 - 1 - 2

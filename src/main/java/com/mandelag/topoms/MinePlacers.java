@@ -1,4 +1,4 @@
-package minesweeper;
+package com.mandelag.topoms;
 
 import java.util.*;
 
