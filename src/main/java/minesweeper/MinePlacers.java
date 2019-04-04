@@ -4,6 +4,9 @@ import java.util.*;
 
 public class MinePlacers {
   public static final IMinePlacer random = (graph, mines) -> {
+    if(mines > graph.size()) {
+      throw new IllegalArgumentException("Number of mines should not exceed number of nodes in the map.");
+    }
     List<Integer> newNodes = new ArrayList<>(graph.size());
     List<Integer> list = new ArrayList<>(graph.size());
     List<Integer> nodesWithMine = new ArrayList<>(mines);
