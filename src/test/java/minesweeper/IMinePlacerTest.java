@@ -25,15 +25,15 @@ public class IMinePlacerTest {
    *  each of them connected to their surroundings (maximum of 8).
    */
   final int[][] connectivity = new int[][] {
-      new int[]{1, 3, 4}, // 0
-      new int[]{0, 2, 3, 4, 5},
-      new int[]{1, 4, 5},
-      new int[]{0, 1, 4, 6, 7},
-      new int[]{0, 1, 2, 3, 5, 6, 7, 8},
-      new int[]{1, 2, 4, 7, 8},
-      new int[]{3, 4, 7},
-      new int[]{3, 4, 5, 6, 8},
-      new int[]{4, 5, 7}     // 8
+      {1, 3, 4}, // 0
+      {0, 2, 3, 4, 5},
+      {1, 4, 5},
+      {0, 1, 4, 6, 7},
+      {0, 1, 2, 3, 5, 6, 7, 8},
+      {1, 2, 4, 7, 8},
+      {3, 4, 7},
+      {3, 4, 5, 6, 8},
+      {4, 5, 7}     // 8
   };
   final List<Integer> nodes = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
   final IIndexedGraph<Integer> map = new IndexedGraph<>(connectivity, nodes);

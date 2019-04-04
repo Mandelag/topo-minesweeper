@@ -49,12 +49,12 @@ public class UtilsTest {
 
     int[][] connectivityMatrix = Utils.getConnectivityMatrix(polygons);
     assertArrayEquals(new int[][] {
-        new int[]{1, 2, 3},
-        new int[]{0},
-        new int[]{0, 4},
-        new int[]{0, 4, 5},
-        new int[]{2, 3},
-        new int[]{3},
+        {1, 2, 3},
+        {0},
+        {0, 4},
+        {0, 4, 5},
+        {2, 3},
+        {3},
     }, connectivityMatrix);
   }
 
