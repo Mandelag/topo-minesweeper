@@ -21,6 +21,9 @@ public class ConnectivityIndex implements IConnectivityIndex {
     for(int i=0; i<connectivityIndexes.length; i++) {
       Set<Integer> con = new HashSet<>(connectivityIndexes[i].length);
       con.remove(i);
+      for(int j=0; j<connectivityIndexes[i].length; j++) {
+        con.add(connectivityIndexes[i][j]);
+      }
       indexes[i] = con;
     }
     this.connectivityIndexes = indexes;

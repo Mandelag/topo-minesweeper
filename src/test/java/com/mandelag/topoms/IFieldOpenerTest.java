@@ -1,6 +1,7 @@
 package com.mandelag.topoms;
 
 import com.mandelag.topoms.graph.IIndexedGraph;
+import com.mandelag.topoms.graph.impl.ConnectivityIndex;
 import com.mandelag.topoms.graph.impl.IndexedGraph;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -41,7 +42,6 @@ public class IFieldOpenerTest {
   };
   final List<Integer> nodes = Arrays.asList(-999, 1, 0, 1, 1, 0, 0, 0, 0);
   final IIndexedGraph<Integer> mapWithMines = new IndexedGraph<>(connectivity, nodes);
-
   IFieldOpener opener = new DefaultFieldOpeners();
 
   @Test

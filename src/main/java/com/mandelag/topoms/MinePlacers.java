@@ -25,10 +25,10 @@ public class MinePlacers {
     // populate the map with mines value (-99), and increase the surrounding nodes value.
     for(int nodeWithMine : nodesWithMine) {
       newNodes.set(nodeWithMine, -999);
-      int[] neighboringNodesIndex = graph.getAdjacentNodeIndexes(nodeWithMine);
-      for(int i=0; i<neighboringNodesIndex.length; i++) {
-        int newValue = newNodes.get(neighboringNodesIndex[i]) + 1;
-        newNodes.set(neighboringNodesIndex[i], newValue);
+      Set<Integer> neighboringNodesIndex = graph.getAdjacentNodeIndexes(nodeWithMine);
+      for(int i : neighboringNodesIndex) {
+        int newValue = newNodes.get(i) + 1;
+        newNodes.set(i, newValue);
       }
     }
 

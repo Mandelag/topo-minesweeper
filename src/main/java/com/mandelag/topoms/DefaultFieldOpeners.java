@@ -4,6 +4,7 @@ import com.mandelag.topoms.graph.IIndexedGraph;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class DefaultFieldOpeners implements IFieldOpener {
@@ -39,19 +40,16 @@ public class DefaultFieldOpeners implements IFieldOpener {
     }
   }
 
-  private int[] openRecursively(int[] visitedNodes, IIndexedGraph<Integer> graph, int index) {
-    if(visitedNodes[index] == 1) return visitedNodes;
-
+  private void openRecursively(int[] visitedNodes, IIndexedGraph<Integer> graph, int index) {
+    if(visitedNodes[index] == 1) return;
     int value = graph.get(index);
     visitedNodes[index] = 1;
 
-    if( value == 0 ) { // open
-      int[] surroundingNodes = graph.getAdjacentNodeIndexes(index);
-      for(int i=0; i<surroundingNodes.length; i++) {
-        openRecursively(visitedNodes, graph, surroundingNodes[i]);
-      }
-    }
+    if( value != 0 ) return;
 
-    return visitedNodes;
+    Set<Integer> surroundingNodes = graph.getAdjacentNodeIndexes(index);
+    for(int i : surroundingNodes) {
+      openRecursively(visitedNodes, graph, i);
+    }
   }
 }

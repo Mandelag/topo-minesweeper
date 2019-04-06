@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class IMinePlacerTest {
 
@@ -44,13 +45,13 @@ public class IMinePlacerTest {
     // validate by checking non negative nodes, that their surrounding have N mines.
     for(int i=0; i<mapWithMines.size(); i++) {
       int value = mapWithMines.get(i);
-      int[] surroundingIndex = mapWithMines.getAdjacentNodeIndexes(i);
+      Set<Integer> surroundingIndex = mapWithMines.getAdjacentNodeIndexes(i);
       int actualNumberOfSurroundingMines = 0;
 
       if (value < 0) continue;
 
-      for(int j=0; j<surroundingIndex.length; j++) {
-        if ( mapWithMines.get(surroundingIndex[j]) < 0) {
+      for(int j : surroundingIndex) {
+        if ( mapWithMines.get(j) < 0) {
           actualNumberOfSurroundingMines += 1;
         }
       }
