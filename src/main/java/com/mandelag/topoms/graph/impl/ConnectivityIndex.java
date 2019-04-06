@@ -55,8 +55,9 @@ public class ConnectivityIndex implements IConnectivityIndex {
 
   @Override
   public boolean equals(Object o) {
-    if (o instanceof Set[]) {
-      return Arrays.equals(connectivityIndexes, (Set[]) o);
+    if (o instanceof ConnectivityIndex) {
+      ConnectivityIndex c2 = (ConnectivityIndex) o;
+      return this.hashCode() == c2.hashCode();
     }
     return false;
   }
