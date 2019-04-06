@@ -5,6 +5,8 @@ import java.util.Set;
 
 /**
  * Main interface for data structure used in this game.
+ * IndexedGraph is a ConnectivityIndex with knowledge of the nodes.
+ *
  * @param <T> Graph node's type.
  */
 public interface IIndexedGraph<T> {

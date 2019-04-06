@@ -8,8 +8,6 @@ public class Minesweeper {
   private IMinePlacer minePlacer;
   private IFieldOpener fieldOpener;
 
-  // TODO provide a list of ready to use maps.
-
   public Minesweeper(IIndexedGraph<Integer> map, int numberOfMines) {
     this(map, numberOfMines, MinePlacers.random, new DefaultFieldOpeners());
   }
